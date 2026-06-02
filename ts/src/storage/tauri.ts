@@ -15,6 +15,7 @@ let storePromise: Promise<TauriStore> | null = null
 async function getStore(): Promise<TauriStore> {
   if (!storePromise) {
     storePromise = (async () => {
+      // @ts-expect-error optional peer — web/uni builds do not install @tauri-apps/plugin-store
       const { load } = await import('@tauri-apps/plugin-store')
       return load(STORE_FILE, { autoSave: true, defaults: {} })
     })()
