@@ -1,4 +1,4 @@
-import { AUTH_COOKIE_MAX_AGE_DAYS, AUTH_TOKEN_KEY, type TokenStorage } from './types'
+import { AUTH_COOKIE_MAX_AGE_DAYS, AUTH_TOKEN_KEY, type TokenStorage } from '../types'
 
 export function getTokenFromCookie(name = AUTH_TOKEN_KEY): string | null {
   if (typeof document === 'undefined') return null
