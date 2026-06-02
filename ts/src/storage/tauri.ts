@@ -12,11 +12,18 @@ type TauriStore = {
 
 let storePromise: Promise<TauriStore> | null = null
 
+async function importTauriStore() {
+  // Dynamic string import avoids pulling optional peer into web/uni typecheck graphs.
+  const importModule = new Function('p', 'return import(p)') as (
+    modulePath: string,
+  ) => Promise<{ load: (path: string, options?: object) => Promise<TauriStore> }>
+  return importModule('@tauri-apps/plugin-store')
+}
+
 async function getStore(): Promise<TauriStore> {
   if (!storePromise) {
     storePromise = (async () => {
-      // @ts-expect-error optional peer — web/uni builds do not install @tauri-apps/plugin-store
-      const { load } = await import('@tauri-apps/plugin-store')
+      const { load } = await importTauriStore()
       return load(STORE_FILE, { autoSave: true, defaults: {} })
     })()
   }
