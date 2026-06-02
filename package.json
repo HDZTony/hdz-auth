@@ -1,0 +1,32 @@
+{
+  "name": "@hdz/auth",
+  "version": "0.1.0",
+  "description": "Shared Supabase auth for Fashion, Wormhole, and FastAPI services",
+  "type": "module",
+  "main": "./ts/src/index.ts",
+  "types": "./ts/src/index.ts",
+  "exports": {
+    ".": "./ts/src/index.ts",
+    "./jwt": "./ts/src/jwt.ts",
+    "./api-client": "./ts/src/api-client.ts",
+    "./storage/web": "./ts/src/storage/web.ts",
+    "./storage/tauri": "./ts/src/storage/tauri.ts",
+    "./storage/uni": "./ts/src/storage/uni.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HDZTony/hdz-auth.git"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "axios": "^1.16.1"
+  },
+  "peerDependencies": {
+    "@tauri-apps/plugin-store": "^2",
+    "pinia": "^2 || ^3"
+  },
+  "peerDependenciesMeta": {
+    "@tauri-apps/plugin-store": { "optional": true },
+    "pinia": { "optional": true }
+  }
+}
