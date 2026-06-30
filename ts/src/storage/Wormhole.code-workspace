@@ -11,6 +11,12 @@
 		},
 		{
 			"path": "../../../../Telegram-iOS"
+		},
+		{
+			"path": "../../../../cc-switch"
+		},
+		{
+			"path": "../../../../fashion"
 		}
 	],
 	"settings": {}

@@ -1,6 +1,15 @@
 export { createAuthenticatedApiClient } from './api-client'
 export { createAuthService, createReactiveAuthBindings } from './auth-service'
 export { createSupabaseAuthClient } from './supabase-client'
+export {
+  exchangeGoogleNativeSession,
+  loadGoogleIdentityServices,
+  requestGoogleWebAccessToken,
+  signInWithGoogleIdToken,
+  signInWithGoogleWeb,
+  type GoogleNativeSession,
+  type SignInWithGoogleWebOptions,
+} from './google-sign-in'
 export { extractUserIdFromJwt, isJwtExpired } from './jwt'
 export {
   AUTH_TOKEN_KEY,
